@@ -1,0 +1,20 @@
+---
+
+- name: Install {{ package_name }}
+  yum:
+     name: "{{ package_name }}"
+     state: present
+
+- name: Find JDK directory
+  shell: "readlink /etc/alternatives/java | sed -e 's/\\/jre\\/bin\\/java$//g'"
+  register: jdk_lookup_result
+
+- name: Extract JDK result
+  set_fact:
+    java_home: "{{ jdk_lookup_result.stdout }}"
+
+- name: Add JAVA_HOME to path
+  template:
+    src: java_home.sh.j2
+    dest: /etc/profile.d/java_home.sh
+    mode: 0644
