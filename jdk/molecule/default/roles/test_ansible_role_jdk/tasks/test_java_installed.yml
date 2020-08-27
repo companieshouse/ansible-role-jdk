@@ -1,0 +1,10 @@
+---
+
+- name: Gather the rpm package facts
+  package_facts:
+    manager: auto
+
+- name: Check whether a package called {{test_package_name}} is installed
+  debug:
+    msg: "{{ ansible_facts.packages[test_package_name] | length }} versions of {{test_package_name}} are installed!"
+  when: "test_package_name in ansible_facts.packages"

@@ -1,5 +1,6 @@
 # Ansible
 *.retry
+/.molecule/
 
 # Galaxy roles
 galaxy_roles/

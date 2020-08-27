@@ -1,0 +1,4 @@
+---
+
+- name: Include tasks for testing java
+  include_tasks: "test_java_installed.yml"

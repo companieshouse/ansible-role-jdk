@@ -1,0 +1,8 @@
+---
+
+- name: Verify
+  hosts: all
+  tasks:
+    - name: Check java installed
+      include_role:
+        name: test_ansible_role_jdk
