@@ -5,4 +5,4 @@
   tasks:
     - name: Check java installed
       include_role:
-        name: test_ansible_role_jdk
+        name: test-ansible-role-jdk
